@@ -1,4 +1,4 @@
-# Advinhe o número
+# Adivinhe o número
 
 link do site: 
 
