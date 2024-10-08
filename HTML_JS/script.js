@@ -24,7 +24,6 @@ function iniciarJogo(dificuldade){
             break;
     }
     numero = Math.ceil(Math.random()*dificuldade)
-    console.log(numero)
 
     divInicio.style.display = "none"
     containerMenor.style.display = "block"
