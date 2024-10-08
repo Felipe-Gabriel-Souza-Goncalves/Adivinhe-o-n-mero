@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivinhe o número!</title>
+    <style>
+        *{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        *:not(html, head, script){
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        body{
+            height: 80vh;
+            /* display: flex;
+            align-items: center;
+            justify-content: center; */
+        }
+        input{
+            width: 40%;
+            font-weight: 600;
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            display: none;
+        }
+        #containerMaior, #containerMenor, #divInicio{
+            width: 100%;
+            flex-direction: column;
+        }
+            #containerMenor{
+                display: none;
+                margin: auto;
+            }
+        #texto{
+            width: 100%;
+            animation: erroPalpite 10s;
+        }
+        @keyframes erroPalpite {
+            from{ color: red}
+            to{ color: black;}
+        }
+    </style>
+</head>
+<body>
+    <div id="containerMaior">
+        <h1 style="font-size: 3rem;">Adivinhe o número!</h1>
+        <br><br><br>
+        <div id="divInicio">
+            <h4>Pressione um dos botões para começar!</h4>
+            <div style="display: flex;">                
+                <button onclick="iniciarJogo(1)" class="botao dificuldade" id="facil">Fácil (0-10)</button>
+                <span>&nbsp;</span>
+                <button onclick="iniciarJogo(2)" class="botao dificuldade" id="medio">Médio (0-100)</button>
+                <span>&nbsp;</span>
+                <button onclick="iniciarJogo(3)" class="botao dificuldade" id="dificil">Difícil (0-1000)</button>
+            </div>
+        </div>
+        <div id="containerMenor">
+            <h3 id="tentativa">Tentativa 0</h3>
+            <h3 id="texto"> &nbsp;</h3>
+            <div>
+                <input max="10" min="0" id="palpite" type="number" placeholder="Digite aqui" required>
+                <button class="botao" onclick="darPalpite()">Enviar Palpite</button>
+                <button onclick="reiniciar()">Reiniciar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
