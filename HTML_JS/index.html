@@ -15,9 +15,7 @@
         }
         body{
             height: 80vh;
-            /* display: flex;
-            align-items: center;
-            justify-content: center; */
+
         }
         input{
             width: 40%;
@@ -39,6 +37,18 @@
             width: 100%;
             animation: erroPalpite 10s;
         }
+
+        #listaDeTentativas{
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            margin: 0;
+        }
+
         @keyframes erroPalpite {
             from{ color: red}
             to{ color: black;}
@@ -60,13 +70,18 @@
             </div>
         </div>
         <div id="containerMenor">
-            <h3 id="tentativa">Tentativa 0</h3>
+            <h3 id="tentativa">Tentativa 1</h3>
+            <h5>Dificuldade - <span id="spanDificuldade"></span></h5>
             <h3 id="texto"> &nbsp;</h3>
-            <div>
+            <div style="font-size: 1.5rem;">
                 <input max="10" min="0" id="palpite" type="number" placeholder="Digite aqui" required>
                 <button class="botao" onclick="darPalpite()">Enviar Palpite</button>
                 <button onclick="reiniciar()">Reiniciar</button>
+                <br>
             </div>
+            <ol  id="listaDeTentativas">
+
+            </ol>
         </div>
     </div>
 

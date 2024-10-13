@@ -1,12 +1,10 @@
 import random, os
 
-
-
 pontuacao = 0
 tentativas = 0
 alcance = 10
+arrayPalpites = []
 
-input("Jogo advinhe o número! (digite qualquer coisa para começar) \n")
 print("qual a dificuldade? (insira o número correspondente) \n")
 print("1- Fácil: 0 - 10")
 print("2 -Médio: 0 - 100")
@@ -26,17 +24,28 @@ os.system("cls")
 numero = random.randint(0, alcance)
 
 while(True):
-    print("Tentativa ", tentativas)
-    palpite = int(input())
+    try:
+        print("Tentativa ", tentativas, " Palpites: ", arrayPalpites)
+        palpite = int(input())
+    except ValueError:
+        print("input inválido")
+        continue
 
-    if(palpite < numero):
+    if(palpite < numero and palpite > 0):
         print("errou, o número é maior!")
-    elif(palpite > numero):
+        arrayPalpites.append(palpite)
+
+    elif(palpite > numero and palpite < alcance):
         print("errou, o número é menor!")
-    else:
+        arrayPalpites.append(palpite)
+
+    elif(palpite == numero):
         print("Parabéns você acertou!")
         print("Tentativas: ", tentativas)
         print("Palpite: ", palpite)
         print("Numero: ", numero)
         break
+    else:
+        print("input inválido")
+        continue
     tentativas+=1
