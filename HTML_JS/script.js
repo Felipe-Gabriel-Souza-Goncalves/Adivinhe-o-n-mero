@@ -2,17 +2,22 @@ const divInicio = document.getElementById("divInicio")
 const containerMenor = document.getElementById("containerMenor")
 const inputPalpite = document.getElementById("palpite")
 const texto = document.getElementById("texto")
-const tentativa = document.getElementById("tentativa")
-const listaDeTentativas = document.getElementById("listaDeTentativas")
+const elementoTentativa = document.getElementById("tentativa")
+const ol = document.getElementById("listaDeTentativas")
+const li = document.getElementsByClassName("li")
 
 var numero;
-var tentativas = 0;
+var tentativas = 1;
 var dificuldade = 10
 var arrayPalpites = []
+var ultimoPalpite;
 
 console.log("%c Por que você está aqui? pretende trapacear? >=[",
              "color :pink;")
 function iniciarJogo(dificuldade){
+    for(var i = li.length-1; i>=0; i--){
+        li[i].remove()
+    }
     switch(dificuldade){
         case 1:
             dificuldade = 10
@@ -38,8 +43,18 @@ function iniciarJogo(dificuldade){
 }
 
 function darPalpite(){
-    palpite = parseInt(inputPalpite.value)
-    
+    var palpite = inputPalpite.value
+    if(palpite == "" || palpite == ultimoPalpite){
+        return
+    }
+    palpite = parseInt(palpite)
+    ultimoPalpite = palpite;
+
+    var element = document.createElement("li")
+    element.classList.add("li")
+    element.innerHTML = "Tentativa " +tentativas + " - "  + palpite
+    ol.appendChild(element)
+
     if(palpite != numero){
         texto.style.animation = "erroPalpite 2s ease-in-out";
         texto.style.animation = "";
@@ -47,15 +62,8 @@ function darPalpite(){
 
         if(palpite > numero){
             texto.innerHTML = "O seu palpite é maior que o número!"
-            var element = document.createElement("li")
-            element.innerHTML = "Tentativa " +tentativas + " - "  + palpite
-            listaDeTentativas.appendChild(element)
-
         } else if(palpite < numero){
             texto.innerHTML = "O seu palpite é menor que o número"
-            var element = document.createElement("li")
-            element.innerHTML = "Tentativa " +tentativas + " - "  + palpite
-            listaDeTentativas.appendChild(element)
         }
 
 
@@ -64,18 +72,23 @@ function darPalpite(){
     }else if(palpite == numero){
         texto.innerHTML = "Parabéns, você acertou!"
         inputPalpite.style.color = "rgb(0,200,0)"
-        console.log(arrayPalpites)
+        tentativas++
+        elementoTentativa.textContent= "Tentativa " + tentativas
+        document.getElementById("enviarPalpite").style.display = "none"
         return 0;
     }
     tentativas++
-    tentativa.textContent= "Tentativa " + tentativas
+    elementoTentativa.textContent= "Tentativa " + tentativas
 }
 function reiniciar(){
+    for(var i = li.length-1; i>=0; i--){
+        li[i].remove()
+    }
     divInicio.style.display = "block"
     containerMenor.style.display = "none"
     texto.innerHTML = ""
     tentativas = 0
-    tentativa.textContent= "Tentativa " + tentativas
+    elementoTentativa.textContent= "Tentativa " + tentativas
     inputPalpite.value = ""
 
 }

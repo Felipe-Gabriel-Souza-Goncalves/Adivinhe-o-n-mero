@@ -39,7 +39,7 @@
         }
 
         #listaDeTentativas{
-            width: 100%;
+            width: 99%;
             text-align: center;
             position: absolute;
             z-index: 2;
@@ -75,11 +75,11 @@
             <h3 id="texto"> &nbsp;</h3>
             <div style="font-size: 1.5rem;">
                 <input max="10" min="0" id="palpite" type="number" placeholder="Digite aqui" required>
-                <button class="botao" onclick="darPalpite()">Enviar Palpite</button>
+                <button id="enviarPalpite" class="botao" onclick="darPalpite()">Enviar Palpite</button>
                 <button onclick="reiniciar()">Reiniciar</button>
                 <br>
             </div>
-            <ol  id="listaDeTentativas">
+            <ol id="listaDeTentativas">
 
             </ol>
         </div>
