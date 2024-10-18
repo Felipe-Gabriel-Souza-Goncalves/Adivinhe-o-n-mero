@@ -9,8 +9,10 @@ HTML/JavaScript
 
 Atualização 17_10_2024:
 
-  -Lista de tentativas é apagada após reiniciar jogo
+    -Lista de tentativas é apagada após reiniciar jogo
+    
+    -Tentativa agora começa no 1
+    
+    -Não é mais possível enviar com input vazio ou valores iguais em sequência
 
-  -Tentativa agora começa no 1
 
-  -Não é mais possível enviar com input vazio ou valores iguais em sequência
