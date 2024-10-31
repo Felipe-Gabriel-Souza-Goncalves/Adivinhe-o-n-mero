@@ -34,6 +34,8 @@ function iniciarJogo(dificuldade){
             inputPalpite.max = dificuldade
             document.getElementById("spanDificuldade").innerHTML = "Difícil"
             break;
+
+        document.getElementById("enviarPalpite").style.display = "block"
     }
     numero = Math.ceil(Math.random()*dificuldade)
 
