@@ -35,7 +35,6 @@ function iniciarJogo(dificuldade){
             document.getElementById("spanDificuldade").innerHTML = "Difícil"
             break;
 
-        document.getElementById("enviarPalpite").style.display = "block"
     }
     numero = Math.ceil(Math.random()*dificuldade)
 
@@ -54,7 +53,7 @@ function darPalpite(){
 
     var element = document.createElement("li")
     element.classList.add("li")
-    element.innerHTML = "Tentativa " +tentativas + " - "  + palpite
+    element.innerHTML = "Tentativa " + (tentativas+1) + " - "  + palpite
     ol.appendChild(element)
 
     if(palpite != numero){
@@ -89,10 +88,11 @@ function reiniciar(){
     divInicio.style.display = "block"
     containerMenor.style.display = "none"
     texto.innerHTML = ""
-    tentativas = 0
+    tentativas = 1
     elementoTentativa.textContent= "Tentativa " + tentativas
     inputPalpite.value = ""
-
+  
+    document.getElementById("enviarPalpite").style.display = "block"
 }
 
 inputPalpite.addEventListener("focus", () =>{
