@@ -40,6 +40,7 @@ function iniciarJogo(dificuldade){
 
     divInicio.style.display = "none"
     containerMenor.style.display = "block"
+    document.getElementById("enviarPalpite").style.display = "block"
 }
 
 function darPalpite(){
