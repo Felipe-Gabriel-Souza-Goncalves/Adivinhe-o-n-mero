@@ -38,7 +38,6 @@ function iniciarJogo(dificuldade){
     }
     numero = Math.ceil(Math.random()*dificuldade)
 
-
     divInicio.style.display = "none"
     containerMenor.style.display = "block"
 }
@@ -66,20 +65,16 @@ function darPalpite(){
         } else if(palpite < numero){
             texto.innerHTML = "O seu palpite é menor que o número"
         }
-
-
-
-
     }else if(palpite == numero){
         texto.innerHTML = "Parabéns, você acertou!"
         inputPalpite.style.color = "rgb(0,200,0)"
-        tentativas++
         elementoTentativa.textContent= "Tentativa " + tentativas
         document.getElementById("enviarPalpite").style.display = "none"
+        document.getElementsByClassName("li")[document.getElementsByClassName("li").length - 1].style.color = "rgb(20, 200, 20)"
         return 0;
     }
-    tentativas++
     elementoTentativa.textContent= "Tentativa " + tentativas
+    tentativas++
 }
 function reiniciar(){
     for(var i = li.length-1; i>=0; i--){
@@ -91,8 +86,6 @@ function reiniciar(){
     tentativas = 1
     elementoTentativa.textContent= "Tentativa " + tentativas
     inputPalpite.value = ""
-  
-    document.getElementById("enviarPalpite").style.display = "block"
 }
 
 inputPalpite.addEventListener("focus", () =>{
