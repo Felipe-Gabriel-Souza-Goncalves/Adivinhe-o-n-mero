@@ -10,12 +10,14 @@ Python
 Java
 HTML/JavaScript
 
-Atualização 17_10_2024:
+Atualização 17_10_2024 (JavaScript):
 
     -Lista de tentativas é apagada após reiniciar jogo
-    
     -Tentativa agora começa no 1
-    
     -Não é mais possível enviar com input vazio ou valores iguais em sequência
 
+Atualização 12_11_2024 (JavaScript):
 
+    -Correção do bug do botão desaparecer
+    -Ajuste das tentativas
+    -Marcação especial para a tentativa com o acerto
